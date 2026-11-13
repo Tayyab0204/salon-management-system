@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f2ea"><title>My Profile · Men's Hair Salon</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/polish.css"><link rel="stylesheet" href="css/profile.css"><link rel="stylesheet" href="css/avatar-fix.css"><link rel="stylesheet" href="css/final-responsive.css"></head><body class="salon-profile-page"><main class="profile-layout"><nav class="profile-top"><a id="profileBack" href="index.html">← Back to dashboard</a><span>MEN'S HAIR SALON</span></nav><section class="profile-card"><div class="profile-card-head"><span class="profile-kicker">ACCOUNT SETTINGS</span><h1>My Profile</h1><p>Manage your personal details and account security.</p></div><div class="profile-picture-panel"><div id="profileImagePreview" class="profile-picture">👤</div><div class="profile-identity"><strong id="profileDisplayName">Salon account</strong><span id="profileRole">Account profile</span></div></div><div class="profile-buttons"><button type="button" id="profileFile" class="profile-secondary">Upload Profile Photo</button><button type="button" id="profileRemove" class="profile-remove">Remove Photo</button></div><input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,image/*" hidden><div id="profileMessage" role="status" aria-live="polite" class="profile-message"></div><div class="profile-separator"></div>
+<section id="adminAccountSettings" class="account-settings" aria-label="Administrator account settings">
+  <div class="account-section-heading"><div><span class="profile-kicker">ADMINISTRATOR</span><h2>Account details</h2><p>Your salon administrator profile and sign-in details.</p></div></div>
+  <div class="account-edit-help" id="adminEditHelp" hidden><div><strong>Administrator sign-in required</strong><p>Sign in with the administrator account to update your name, username or password.</p></div><a class="account-signin-action" href="login.html?next=profile">Sign in to edit <span aria-hidden="true">→</span></a></div>
+  <form id="adminDetailsForm" class="account-settings-form">
+    <label for="adminDisplayName">Admin name</label>
+    <input id="adminDisplayName" maxlength="80" autocomplete="name" required>
+    <label for="adminUsername">Username</label>
+    <input id="adminUsername" maxlength="30" minlength="3" pattern="[a-z0-9_]+" autocomplete="username" required>
+    
+
+<label>Account security</label>
+
+<div class="admin-password-card">
+  <div class="admin-password-info">
+    <div class="admin-password-icon" aria-hidden="true">&#128274;</div>
+    <div>
+      <strong>Administrator password</strong>
+      <p>Manage your account password securely.</p>
+    </div>
+  </div>
+
+  <div class="admin-password-buttons">
+    <button type="button" id="showPasswordForm">
+      Change password
+    </button>
+    <a class="admin-recovery-link" href="login.html#recover">Forgot password?</a>
+  </div>
+</div>
+
+
+    <button type="submit" class="account-save-btn">Save account details</button>
+  </form>
+  <section class="recovery-setup" id="adminRecoverySetup" aria-label="Password recovery setup">
+    <div class="recovery-setup-head">
+      <div><strong>Backup recovery code</strong><p>Create a one-time backup code while you know your password. Keep it safe for a future password reset.</p></div>
+    </div>
+    <form id="adminRecoveryCodeForm" class="recovery-setup-form">
+      <label for="recoveryCurrentPassword">Confirm current password</label>
+      <div class="recovery-inline-field">
+        <input id="recoveryCurrentPassword" type="password" autocomplete="current-password" required>
+        <button type="button" data-toggle-admin-password="recoveryCurrentPassword" aria-label="Show current password">Show</button>
+      </div>
+      <button class="recovery-create-btn" type="submit">Generate recovery code</button>
+    </form>
+    <div id="recoveryCodeResult" class="recovery-code-result" hidden>
+      <label for="recoveryCodeOutput">Your one-time recovery code</label>
+      <div class="recovery-inline-field"><input id="recoveryCodeOutput" readonly aria-label="Recovery code"><button id="copyRecoveryCode" type="button">Copy</button></div>
+      <p>Save this code outside the website. Generating a new code cancels the previous one. Using it to reset your password consumes it.</p>
+    </div>
+    <p id="recoverySetupMessage" role="status" aria-live="polite" class="recovery-setup-message"></p>
+  </section>
+  <form id="adminPasswordForm" class="account-settings-form password-form" hidden>
+    <h3>Change your password</h3>
+    
+<label for="currentAdminPassword">Current password</label>
+<div class="admin-password-field">
+  <input
+    type="password"
+    id="currentAdminPassword"
+    autocomplete="current-password"
+    required
+  >
+  <button type="button" class="admin-password-toggle"
+    data-toggle-admin-password="currentAdminPassword"
+    aria-label="Show current password">Show</button>
+</div>
+
+<label for="newAdminPassword">New password</label>
+<div class="admin-password-field">
+  <input
+    type="password"
+    id="newAdminPassword"
+    autocomplete="new-password"
+    minlength="12"
+    required
+  >
+  <button type="button" class="admin-password-toggle"
+    data-toggle-admin-password="newAdminPassword"
+    aria-label="Show new password">Show</button>
+</div>
+
+<label for="confirmAdminPassword">Confirm new password</label>
+<div class="admin-password-field">
+  <input
+    type="password"
+    id="confirmAdminPassword"
+    autocomplete="new-password"
+    minlength="12"
+    required
+  >
+  <button type="button" class="admin-password-toggle"
+    data-toggle-admin-password="confirmAdminPassword"
+    aria-label="Show confirm password">Show</button>
+</div>
+
+    <div class="password-actions"><button type="submit" class="account-save-btn">Update password</button><button type="button" id="cancelPasswordForm">Cancel</button></div>
+  </form>
+  <p id="adminAccountMessage" class="profile-message" role="status" aria-live="polite"></p>
+</section>
+<div class="account-logout-row"><div><strong>Account session</strong><p>Sign out when you finish using the salon management system.</p></div><button type="button" id="profileLogout" class="account-logout-btn">Log out</button></div>
+<div class="profile-portal" id="profileSignInPortal"><div><strong>Account access</strong><p>Use your assigned username and password to sign in.</p></div><a href="login.html">Sign in →</a></div></section></main><script src="js/api-config.js"></script>
+<script src="js/profile-photo.js"></script>
+<script src="js/profile-account.js"></script>
+
+<script>
+document.querySelectorAll("[data-toggle-admin-password]").forEach(button => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.toggleAdminPassword);
+    if (!input) return;
+
+    const visible = input.type === "password";
+    input.type = visible ? "text" : "password";
+    button.textContent = visible ? "Hide" : "Show";
+    button.setAttribute("aria-pressed", String(visible));
+  });
+});
+</script>
+
+</body></html>

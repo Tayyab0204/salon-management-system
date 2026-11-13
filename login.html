@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f2ea">
+  <title>Sign in · Men's Hair Salon</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/polish.css"><link rel="stylesheet" href="css/final-responsive.css"></head>
+<body class="auth-body">
+  <main class="auth-layout">
+    <section class="auth-showcase">
+      <div class="auth-brand">
+        <span class="auth-brandmark">✂</span>
+        <span>
+          MEN'S HAIR <b>SALON</b>
+          <small>STUDIO MANAGEMENT</small>
+        </span>
+      </div>
+
+      <div class="auth-showcase-copy">
+        <span class="auth-kicker">CLEAN DAILY WORKFLOW · MODERN SALON MANAGEMENT</span>
+        <h1>Simple for staff.<br><em>Reliable for admin.</em></h1>
+        <p>
+          A neat and professional workspace for daily entries, worker records,
+          earnings and salon operations.
+        </p>
+      </div>
+
+      <div class="auth-showcase-points">
+        <div class="auth-point"><span>✓</span><strong>Daily work tracking</strong></div>
+        <div class="auth-point"><span>✓</span><strong>Worker-wise records</strong></div>
+        <div class="auth-point"><span>✓</span><strong>Reports & summaries</strong></div>
+      </div>
+
+      <div class="auth-decor">
+        <div class="auth-orbit"></div>
+        <span>✦</span>
+      </div>
+
+      <div class="auth-copyright">MEN'S HAIR SALON · CREAM & ESPRESSO EDITION</div>
+    </section>
+
+    <section class="auth-content">
+      <div class="auth-card">
+        <div class="auth-topbar">
+          <a href="index.html" class="back-to-site">← Back to salon dashboard</a>
+          <span class="auth-preview-badge">Salon workspace</span>
+        </div>
+
+        <div class="auth-mobile-brand">✂ &nbsp; MEN'S HAIR SALON</div>
+        <span class="auth-eyebrow">WELCOME BACK</span>
+        <h2>Sign in to your workspace</h2>
+        <p>Enter the username and password provided by your salon administrator.</p>
+
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <div class="auth-field">
+            <span>♙</span>
+            <input type="text" id="username" autocomplete="username" required placeholder="Your username">
+          </div>
+
+          <label for="password">Password</label>
+          <div class="auth-field">
+            <span>♧</span>
+            <input type="password" id="password" autocomplete="current-password" required placeholder="Your password">
+            <button id="togglePassword" type="button" aria-label="Show password">Show</button>
+          </div>
+
+          <p id="loginError" class="auth-error" role="alert" hidden></p>
+          <button class="btn btn-primary auth-submit" type="submit">Sign in <span>→</span></button>
+        </form>
+
+        <div class="forgot-entry"><button type="button" id="openRecovery">Forgot admin password?</button></div>
+        <section id="recoveryPanel" class="recovery-panel" hidden aria-label="Reset administrator password">
+          <h3>Reset administrator password</h3>
+          <p>Use the one-time recovery code you saved from your administrator profile.</p>
+          <form id="recoveryForm">
+            <label for="resetUsername">Admin username</label>
+            <input id="resetUsername" autocomplete="username" maxlength="30" required>
+            <label for="resetCode">Recovery code</label>
+            <input id="resetCode" autocomplete="off" required spellcheck="false">
+            <label for="resetPassword">New password</label>
+            <div class="recovery-password-control"><input id="resetPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" required><button type="button" data-toggle-recovery="resetPassword">Show</button></div>
+            <label for="resetConfirm">Confirm new password</label>
+            <div class="recovery-password-control"><input id="resetConfirm" type="password" minlength="12" maxlength="128" autocomplete="new-password" required><button type="button" data-toggle-recovery="resetConfirm">Show</button></div>
+            <p class="recovery-feedback" id="recoveryMessage" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary auth-submit">Reset password</button>
+          </form>
+          <p class="recovery-footnote">Never created a recovery code? Contact the person with authorized access to the backend/database for an administrative reset.</p>
+        </section>
+        <div class="auth-note">
+          <strong>Account access</strong>
+          <span>Worker accounts are created by the admin. No public registration.</span>
+        </div>
+
+        
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api-config.js"></script>
+<script src="js/login-api.js"></script>
+<script src="js/admin-recovery.js"></script>
+</body>
+</html>
